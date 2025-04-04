@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Recordatorio de Medicamentos</title>
+
+</head>
+<body>
+
+    <div id="app-container">
+
+        <!-- Área Principal de Contenido (Páginas Intercambiables) -->
+        <main id="content-area">
+
+            <!-- Página 1: Recordatorio (Tabla Principal) -->
+            <div id="page-reminders" class="page active">
+                <h1>Recordatorio de Medicamentos</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Medicamento</th>
+                            <th>Dosis</th>
+                            <th>Próxima</th>
+                            <th>Pendientes</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-medicamentos">
+                        <!-- Las filas se generarán dinámicamente con JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Página 2: Dashboard Histórico -->
+            <div id="page-dashboard" class="page">
+                <h1>Dashboard Histórico</h1>
+                <div id="dashboard-historico">
+                    <!-- Aquí se mostrará el historial de las dosis con selectores -->
+                </div>
+            </div>
+
+            <!-- Página 3: Formulario Añadir/Editar -->
+            <div id="page-form" class="page">
+                 <!-- El título se ajusta dinámicamente -->
+                <form id="form-medicamento">
+                    <h3 id="form-titulo">Añadir Nuevo Medicamento</h3>
+                    <input type="hidden" id="med-id-editando">
+
+                    <label for="med-nombre">Nombre del Medicamento:</label>
+                    <input type="text" id="med-nombre" required>
+
+                    <label for="med-dosis">Dosis (ej: 500 mg):</label>
+                    <input type="text" id="med-dosis" required>
+
+                    <label for="med-presentacion">Presentación (ej: Cápsula):</label>
+                    <input type="text" id="med-presentacion">
+
+                    <label for="med-via">Vía de Administración (ej: Oral):</label>
+                    <input type="text" id="med-via">
+
+                    <label for="med-dosis-iniciales">Número Total de Dosis:</label>
+                    <input type="number" id="med-dosis-iniciales" required min="1">
+
+                    <label for="med-frecuencia">Frecuencia (en horas):</label>
+                    <input type="number" id="med-frecuencia" required min="1">
+
+                    <label for="med-primera-dosis">Fecha y Hora de la Primera Dosis:</label>
+                    <input type="datetime-local" id="med-primera-dosis" required>
+
+                    <div class="botones-formulario">
+                         <button type="button" id="btn-cancelar-edicion">Cancelar</button>
+                         <button type="submit" id="btn-guardar-medicamento">Guardar Medicamento</button>
+                    </div>
+                </form>
+            </div>
+
+        </main> <!-- Fin #content-area -->
+
+        <!-- Barra de Navegación Inferior -->
+        <nav id="bottom-nav">
+             <!-- Añadir iconos SVG aquí si se desea -->
+            <button id="nav-reminders" class="active">
+                <!-- Icono SVG -->
+                <span>Recordatorios</span>
+            </button>
+            <button id="nav-dashboard">
+                 <!-- Icono SVG -->
+                <span>Historial</span>
+            </button>
+            <button id="nav-add">
+                 <!-- Icono SVG -->
+                <span>Añadir</span>
+            </button>
+        </nav>
+
+    </div> <!-- Fin #app-container -->
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
